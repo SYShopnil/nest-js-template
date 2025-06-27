@@ -7,6 +7,7 @@ import configuration from './config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeOrmConfig } from './config/typeorm.config';
 import { DataSource } from 'typeorm';
+import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
@@ -18,6 +19,8 @@ import { DataSource } from 'typeorm';
     TypeOrmModule.forRoot(typeOrmConfig),
 
     UserModule,
+
+    RedisModule,
   ],
   controllers: [AppController],
   providers: [AppService],
