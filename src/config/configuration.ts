@@ -9,4 +9,9 @@ export default registerAs('config', () => ({
     pass: process.env.DB_PASS,
     name: process.env.DB_NAME,
   },
+  redis: {
+    host: process.env.REDIS_HOST,
+    port: parseInt(process.env.REDIS_PORT || '6379', 10),
+    password: process.env.REDIS_PASSWORD || undefined,
+  },
 }));
