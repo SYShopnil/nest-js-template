@@ -7,7 +7,7 @@ services:
       context: .
     restart: unless-stopped
     networks:
-      - test
+      - app-network
     env_file: .env
 
   nginx:
@@ -18,9 +18,9 @@ services:
     ports:
       - 80:80
     networks:
-      - test
+      - app-network
     depends_on:
       - app
 
 networks:
-  test:
+  app-network:
