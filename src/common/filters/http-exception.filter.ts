@@ -30,7 +30,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
         .message as string[];
 
       errors = messages.map((msg) => {
-        const [field, ...rest] = msg.split(' ');
+        const [field] = msg.split(' ');
         return { field, error: msg };
       });
 

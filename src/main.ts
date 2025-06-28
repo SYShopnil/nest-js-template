@@ -30,9 +30,12 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api-docs', app, document);
 
-  (await app.listen(process.env.PORT ?? 3000)) &&
-    console.log(
-      `Server is successfully connected to ${process.env.PORT ?? 3000}`,
-    );
+  await app.listen(process.env.PORT ?? 3000);
+  console.log(
+    `Server is successfully connected to ${process.env.PORT ?? 3000}`,
+  );
 }
-bootstrap();
+bootstrap().catch((error) => {
+  console.error('Application failed to start:', error);
+  process.exit(1); // Optional: Exit process with failure code
+});
