@@ -4,7 +4,7 @@ import { UserEntity } from '../entities/user.entity';
 import { CreateUserDto } from '../dtos/create-user.dto';
 import { Test } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { userDtoMock, userMocks } from '../mocks';
+import { userDtoMock, userMocks } from './mocks';
 
 describe('When user service has called', () => {
   let userService: UserService;
