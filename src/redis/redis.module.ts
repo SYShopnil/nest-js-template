@@ -14,11 +14,15 @@ export class RedisModule implements OnModuleInit {
   constructor(private readonly redisService: RedisService) {}
 
   async onModuleInit() {
-    const isAlive = await this.redisService.ping();
-    if (isAlive) {
-      this.logger.log('✅ Redis successfully connected');
-    } else {
-      this.logger.error('❌ Redis connection failed');
+    try {
+      const isAlive = await this.redisService.ping();
+      if (isAlive) {
+        this.logger.log('✅ Redis successfully connected');
+      } else {
+        this.logger.error('❌ Redis connection failed');
+      }
+    } catch (err) {
+      this.logger.error(err);
     }
   }
 }
