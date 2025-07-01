@@ -4,3 +4,4 @@
 echo "✅ Running Pre-commit: lint + prettier check"
 
 npx lint-staged
+npm run test
